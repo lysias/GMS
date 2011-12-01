@@ -34,6 +34,8 @@
 		<?php echo $form->error($model,'forum_category_id'); ?>
 	</div>
 
+        <?php echo $this->renderPartial('/forumPost/_form', array('model'=>new ForumPost)); ?>
+        
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

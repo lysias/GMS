@@ -12,4 +12,17 @@ $this->menu=array(
 
 <h1>Create ForumThread</h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form',array('model'=>$model)); ?>
+
+<? $this->widget(
+        'ext.jmarkitup.JBBCodeEditor', array(
+    'model' => new ForumPost,
+    'attribute' => 'content',
+    'theme' => 'markitup',
+    'htmlOptions' => array('rows' => 15, 'cols' => 70),
+    'options' => array(
+    'previewParserPath'=>Yii::app()->urlManager->createUrl('forum/forumPost/create'),
+    )
+));
+
+?>

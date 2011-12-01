@@ -56,14 +56,21 @@ class ForumThreadController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+                
 		if(isset($_POST['ForumThread']))
 		{
 			$model->attributes=$_POST['ForumThread'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()){
+                                print_r($_POST);
+                                $post = new ForumPost;
+                                $post->attributes = $_POST['ForumPost'];
+                                $post->forum_thread_id = $model->id;
+                                if($post->save())
+        				$this->redirect(array('view','id'=>$model->id));
+                                else print_r($post->getErrors ());
+                        }
 		}
-
+                
 		$this->render('create',array(
 			'model'=>$model,
 		));

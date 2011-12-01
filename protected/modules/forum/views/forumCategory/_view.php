@@ -1,19 +1,16 @@
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('forumCategory/view', 'id'=>$data->id)); ?>
-	<br />
-
+        
+        <b style="float: right">Threads: <?= CHtml::encode($data->threadCount) ?><br />
+                Posts: <?= CHtml::encode($data->getPostCount()) ?>
+        </b>
+        
 	<b><?php echo CHtml::encode($data->getAttributeLabel('name')); ?>:</b>
-	<?php echo CHtml::encode($data->name); ?>
+	<?php echo CHtml::link(CHtml::encode(CHtml::encode($data->name)), array('forumCategory/view', 'id'=>$data->id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
+	<i><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</i>
 	<?php echo CHtml::encode($data->description); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('forum_id')); ?>:</b>
-	<?php echo CHtml::encode($data->forum_id); ?>
 	<br />
 
 

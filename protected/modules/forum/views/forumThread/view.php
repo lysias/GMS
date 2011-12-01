@@ -25,3 +25,10 @@ $this->menu=array(
 		'forum_category_id',
 	),
 )); ?>
+
+<? foreach($model->posts as $post): ?>
+        <? $this->renderPartial('/forumPost/_view',array('data'=>$post)) ?>
+<? endforeach; ?>
+
+
+<?= CHtml::link('Reply', $this->createUrl('forumPost/create',array('forumThread'=>$model->id))) ?>

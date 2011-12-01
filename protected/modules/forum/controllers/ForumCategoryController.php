@@ -60,6 +60,7 @@ class ForumCategoryController extends Controller
 		if(isset($_POST['ForumCategory']))
 		{
 			$model->attributes=$_POST['ForumCategory'];
+                        $model->forum_id = $_POST['ForumCategory']['forum_id'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

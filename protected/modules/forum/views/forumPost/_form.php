@@ -9,24 +9,21 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'content'); ?>
-		<?php echo $form->textArea($model,'content',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'content'); ?>
-	</div>
+	<?php
+                $this->widget(
+                        'ext.jmarkitup.JBBCodeEditor', array(
+                    'model' => $model,
+                    'attribute' => 'content',
+                    'theme' => 'markitup',
+                    'htmlOptions' => array('rows' => 15, 'cols' => 70),
+                    'options' => array(
+                    'previewParserPath'=>Yii::app()->urlManager->createUrl('forum/forumPost/create'),
+                    )
+                ));
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'created'); ?>
-		<?php echo $form->textField($model,'created'); ?>
-		<?php echo $form->error($model,'created'); ?>
-	</div>
+                ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'forum_thread_id'); ?>
-		<?php echo $form->textField($model,'forum_thread_id'); ?>
-		<?php echo $form->error($model,'forum_thread_id'); ?>
-	</div>
-
+	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

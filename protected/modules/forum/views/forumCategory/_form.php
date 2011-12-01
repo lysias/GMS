@@ -23,7 +23,8 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'forum_id'); ?>
-		<?php echo $form->textField($model,'forum_id'); ?>
+		<?php echo $form->dropDownList($model,'forum_id',
+                        CHtml::listData(Forum::model()->findAll(), 'id', 'name')); ?>
 		<?php echo $form->error($model,'forum_id'); ?>
 	</div>
 
